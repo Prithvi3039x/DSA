@@ -1,7 +1,7 @@
 class Node:
     def _init_(self,data):
         self.data = data
-        self.next = Next
+        self.next = None
 
 class Sll:
     def _init_(self):
@@ -22,12 +22,16 @@ class Sll:
         values = []
         cur = self.head
         while cur:
-            values.append(str(cur(data)))
+            values.append(str(cur.data))
             cur = cur.next
         print("=>".join(values) if values else "List is empty")
 
     def insert(self,pos,data):
         if pos < 0:
+            print("Invalid position")
+            return
+        node = Node(data)
+        if pos == 0:
             node.next = self.head
             self.head = node
             return
@@ -98,7 +102,7 @@ class Sll:
 
 def solution():
 
-    Llist = sll()
+    Llist = Sll()
 
     Llist.create([10,20,30,40,50])
     print("Created")
