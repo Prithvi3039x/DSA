@@ -106,17 +106,22 @@ def solution():
 
     Llist.create([10,20,30,40,50])
     print("Created")
-
     Llist.traverse()
+
+    print("\nInserting 25 at position 2:")
+    Llist.insert(2, 25)
+    Llist.traverse()
+
     Llist.find_mid()
+
     Llist.delete(40)
     print("after deleting 40:")
     Llist.traverse()
+
     Llist.rev()
     print("After reversing")
     Llist.traverse()
+
     Llist.pair_sum()
 
 solution()
-
-
