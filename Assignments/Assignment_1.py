@@ -1,10 +1,10 @@
 class Node:
-    def _init_(self,data):
+    def __init__(self,data):
         self.data = data
         self.next = None
 
 class Sll:
-    def _init_(self):
+    def __init__(self):
         self.head = None
 
     def create(self,values):
@@ -24,7 +24,7 @@ class Sll:
         while cur:
             values.append(str(cur.data))
             cur = cur.next
-        print("=>".join(values) if values else "List is empty")
+        print(" -> ".join(values) if values else "List is empty")
 
     def insert(self,pos,data):
         if pos < 0:
@@ -117,5 +117,6 @@ def solution():
     Llist.traverse()
     Llist.pair_sum()
 
-
 solution()
+
+
