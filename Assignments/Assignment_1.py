@@ -75,6 +75,26 @@ class Sll:
             cur.next = cur.next.next
 
 
+    def delete_first_or_last(self, position):
+        if self.head is None:
+            print("List is empty")
+            return
+
+        if position == "first":
+            self.head = self.head.next
+            return
+        if position != "last":
+            print("Position must be 'first' or 'last'")
+            return
+        if self.head.next is None:
+            self.head = None
+            return
+        cur = self.head
+        while cur.next.next:
+            cur = cur.next
+        cur.next = None
+
+
     def rev(self):
         prev = None
         cur = self.head
