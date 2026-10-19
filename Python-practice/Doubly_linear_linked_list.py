@@ -81,15 +81,25 @@ class DoublyLinkedList:
         #     current.next.prev = current.prev
 
    
+    def rev(self):
+        current = self.head
+        while current.next is not None:
+            current = current.next
 
+        while current:
+            print(current.data, end="->")
+            current = current.prev
+
+        print("None")
 
 dll = DoublyLinkedList()
-dll.insert(10, 0)
-dll.insert(20, 1)
-dll.insert(30, 2)
-dll.insert(15, 3)
+dll.insert(1, 0)
+dll.insert(2, 1)
+dll.insert(3, 2)
+dll.insert(4, 3)
 dll.traverse()
-dll.delete(20)
+dll.rev()
+# dll.delete(20)
 dll.traverse()
 
 
