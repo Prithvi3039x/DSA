@@ -92,14 +92,26 @@ class DoublyLinkedList:
 
         print("None")
 
+    def searchCount(self,value):
+        current = self.head
+        count = 0
+        occurence = 0
+        while current.next is not None:
+            if current.data == value:
+                count += 1
+            current= current.next
+        print(f"Found {value} occured {count} times")
+        return 
+
 dll = DoublyLinkedList()
 dll.insert(1, 0)
 dll.insert(2, 1)
-dll.insert(3, 2)
+dll.insert(1, 2)
 dll.insert(4, 3)
 dll.traverse()
-dll.rev()
+# dll.rev()
+dll.searchCount(1)
 # dll.delete(20)
-dll.traverse()
+# dll.traverse()
 
 
