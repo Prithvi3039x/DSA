@@ -19,43 +19,66 @@ class DoublyLinkedList:
             self.head = new_node
             return
 
-        temp = self.head
+        current = self.head
         p = 0
         while p != position - 1:
-            if temp is None:
+            if current is None:
                 print("Invalid position")
                 return
-            temp = temp.next
+            current = current.next
             p += 1
 
-        if temp is None:
+        if current is None:
             print("Invalid position")
             return
 
-        new_node.next = temp.next
-        new_node.prev = temp
-        temp.next = new_node
+        new_node.next = current.next
+        new_node.prev = current
+        current.next = new_node
 
         if new_node.next is not None:
             new_node.next.prev = new_node
 
     def delete(self, value):
-        temp = self.head
+        current = self.head
 
-        while temp is not None and temp.data != value:
-            temp = temp.next
+        if current.data == value:
+            self.head = self.head.next
+            self.head.prev = None
 
-        if temp is None:
-            print("Value not found")
-            return
-
-        if temp.prev is None:
-            self.head = temp.next
         else:
-            temp.prev.next = temp.next
+            while(current.data!=value and current):
+                current = current.next
+                if current == None:
+                    print("Value is not present")
+                    return
+        current.prev.next = current.next
+        current.next.prev = current.prev
+        current = None
 
-        if temp.next is not None:
-            temp.next.prev = temp.prev
+    def traverse(self):
+        current = self.head
+
+        while current is not None:
+            print(current.data , end="->")
+            current = current.next
+
+        print("None")
+
+        # while current is not None and current.data != value:
+        #     current = current.next
+
+        # if current is None:
+        #     print("Value not found")
+        #     return
+
+        # if current.prev is None:
+        #     self.head = current.next
+        # else:
+        #     current.prev.next = current.next
+
+        # if current.next is not None:
+        #     current.next.prev = current.prev
 
    
 
@@ -64,11 +87,9 @@ dll = DoublyLinkedList()
 dll.insert(10, 0)
 dll.insert(20, 1)
 dll.insert(30, 2)
-dll.insert(15, 1)
+dll.insert(15, 3)
+dll.traverse()
 dll.delete(20)
+dll.traverse()
 
-print("Forward:")
-dll.display_forward()
 
-print("Backward:")
-dll.display_backward()
