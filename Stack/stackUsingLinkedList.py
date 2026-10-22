@@ -16,6 +16,13 @@ class Stack:
         self.top = new_node
 
 
+        
+    def print(self):
+        current = self.top
+        print ("Stack Elements")
+        while current is not None:
+            print(current.data)
+            current = current.next
 
 st = Stack()
 st.push(Node(10))
@@ -23,4 +30,4 @@ st.push(Node(100))
 st.push(Node(45))
 st.push(Node(78))
 
-
+st.print()
