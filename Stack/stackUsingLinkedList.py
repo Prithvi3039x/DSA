@@ -15,7 +15,11 @@ class Stack:
         new_node.next = self.top
         self.top = new_node
 
-
+    def pop(self):
+        current = self.top
+        print("Popped element: ",current.data)
+        self.top = self.top.next
+        current = None
         
     def print(self):
         current = self.top
