@@ -1,0 +1,26 @@
+# Stack using linked list
+class Node:
+    def __init__(self,value):
+        self.data = value
+        self.next = None
+
+class Stack:
+    def __init__(self):
+        self.top = None
+
+    def isEmpty(self):
+        return self.top is None
+
+    def push(self, new_node):
+        new_node.next = self.top
+        self.top = new_node
+
+
+
+st = Stack()
+st.push(Node(10))
+st.push(Node(100))
+st.push(Node(45))
+st.push(Node(78))
+
+
