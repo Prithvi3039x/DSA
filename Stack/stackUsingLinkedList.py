@@ -31,6 +31,17 @@ class Stack:
             print(current.data)
             current = current.next
 
+    def reverse(self):
+        prev = None
+        current = self.top
+        while current is not None:
+            next_node = current.next
+            current.next = prev
+            prev = current
+            current = next_node
+        self.top = prev
+        print("Stack reversed")
+        
 st = Stack()
 st.push(Node(10))
 st.push(Node(100))
@@ -39,4 +50,7 @@ st.push(Node(78))
 
 st.print()
 st.pop()
+st.print()
+print("After reverse:")
+st.reverse()
 st.print()
