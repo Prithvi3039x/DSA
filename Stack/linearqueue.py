@@ -17,16 +17,39 @@ class LQueue:
 
     def print(self):
         current = self.front
+        if self.rear == None:
+            print("Queue is empty")
+            return
         while current:
             print(current.data , end = "<-")
             current = current.next
         print(None)
+
+    def dequeue(self):
+        if self.front is None:
+            print("Queue is empty..!")
+            return None
+        else:
+            data = self.front.data
+            self.front = self.front.next
+            if self.front is None:
+                self.rear = None
+                print("Now queue is empty..!")
+            return data
+
+
 
 q = LQueue()
 q.enqueue(10)
 q.enqueue(20)
 q.enqueue(30)
 q.enqueue(40)
+
+q.dequeue()
+q.dequeue()
+q.dequeue()
+q.dequeue()
+
 
 q.print()
 
